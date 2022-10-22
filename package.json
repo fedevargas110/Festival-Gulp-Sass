@@ -1,0 +1,23 @@
+{
+  "name": "festivalmusica_inicio",
+  "version": "1.0.0",
+  "description": "Proyecto con Gulp, Sass y HTML",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fedevargas110/Festival-Gulp-Sass.git"
+  },
+  "keywords": [
+    "Gulp",
+    "Sass"
+  ],
+  "author": "Federico Vargas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fedevargas110/Festival-Gulp-Sass/issues"
+  },
+  "homepage": "https://github.com/fedevargas110/Festival-Gulp-Sass#readme"
+}
