@@ -4,7 +4,8 @@
   "description": "Proyecto con Gulp, Sass y HTML",
   "main": "index.js",
   "scripts": {
-    "sass": "sass --watch src/scss:build/css"
+    "sass": "sass --watch src/scss:build/css",
+    "tarea": "gulp primerTarea"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
   "homepage": "https://github.com/fedevargas110/Festival-Gulp-Sass#readme",
   "devDependencies": {
     "gulp": "^4.0.2",
+    "gulp-sass": "^5.1.0",
     "sass": "^1.55.0"
   }
 }
