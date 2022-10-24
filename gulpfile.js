@@ -20,7 +20,7 @@ function css(done){
     done();// Callback que avisa a gulp cuando llegamos al final
 }
 
-function dev(done){
+function dev(done){ //Creamos esta funcion para no modificar la principal
     watch('src/scss/app.scss', css)
 
     done();

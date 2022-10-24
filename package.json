@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "sass": "sass --watch src/scss:build/css",
-    "tarea": "gulp primerTarea"
+    "tarea": "gulp primerTarea",
+    "dev": "gulp dev"
   },
   "repository": {
     "type": "git",
