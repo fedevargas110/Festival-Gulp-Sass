@@ -1,6 +1,4 @@
-@import 'base/variables';
-@import 'contenido/contenido';
+//@import 'base/variables'; @import hace disponible los archivos scss de manera global
+@use 'base'; //@use lo compila
+@use 'contenido';
 
-body {
-    background-color:  $rojo;
-}
