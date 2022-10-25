@@ -1,9 +1,2 @@
 @use 'base/variables' as p;//lo que tiene la nueva sintaxis @use es que te crea ese namespace y cuando queremos utilizar la variables tenemos que poner variable.nombre de variables
 //La forma de solucionarlo es elijiendo nsotros el nombre deseado con as y 'nombre que querramos'
-h1{
-    color: p.$h1_color;
-}
-
-body {
-    background-color: p.$body_color;
-}

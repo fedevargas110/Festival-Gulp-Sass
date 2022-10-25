@@ -1,4 +1,5 @@
 //@import 'base/variables'; @import hace disponible los archivos scss de manera global
 @use 'base'; //@use lo compila
 @use 'contenido';
+@use 'layout';
 

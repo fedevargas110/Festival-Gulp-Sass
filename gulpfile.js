@@ -8,12 +8,14 @@
 
 const {src, dest, watch} = require('gulp'); //src para identificar un archivo, dest para guardarlo
 const sass = require('gulp-sass')(require('sass'));
+const plumber =  require('gulp-plumber'); // Es para que no pare de correr el dev y me muestre los errores
 
 function css(done){
     //Identificar el archivo SASS
     //src('src/scss/app.scss') forma para identificar un solo archivo
     src('src/scss/**/*.scss')//forma de compliar todos los archivos con la extencios scss
     //Compilarlo
+        .pipe(plumber())
         .pipe(sass())
     //Almacenarla en el disco duro
         .pipe(dest('build/css'))
