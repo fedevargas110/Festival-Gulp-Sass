@@ -1,6 +1,28 @@
-@mixin heading {
-    font-size: 2.4rem;
-    text-transform: uppercase;
-    color: red;
-    letter-spacing: 1px;
+//@mixin heading {// para crear mixins mas inteligentes le pasamos despues del nombre parentsis, el argumento adentro ya sea color o un border-radius, etc.
+//    font-size: 2.4rem;
+//    text-transform: uppercase;
+//    color: red;
+//    letter-spacing: 1px;
+//}
+@use 'variables' as v;
+@mixin phone{
+    @media (min-width: v.$phone) {
+        @content;
+    }
 }
+@mixin tablet{
+    @media (min-width: v.$tablet) {
+        @content;
+    }
+}
+@mixin desktop{
+    @media (min-width: v.$desktop) {
+        @content;
+    }
+}
+@mixin desktopXl{
+    @media (min-width: v.$desktopXl) {
+        @content;
+    }
+}
+
