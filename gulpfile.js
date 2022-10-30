@@ -6,9 +6,13 @@
 //exports.primerTarea = tarea;
 
 
-const {src, dest, watch} = require('gulp'); //src para identificar un archivo, dest para guardarlo
+const {src, dest, watch, parallel} = require('gulp'); //src para identificar un archivo, dest para guardarlo
+//CSS
 const sass = require('gulp-sass')(require('sass'));
 const plumber =  require('gulp-plumber'); // Es para que no pare de correr el dev y me muestre los errores
+
+//Imagenes
+const webp = require('gulp-webp');
 
 function css(done){
     //Identificar el archivo SASS
@@ -23,6 +27,18 @@ function css(done){
     done();// Callback que avisa a gulp cuando llegamos al final
 }
 
+function versionWebp(done){
+    const opciones = {
+        quality: 50
+    };
+    src('src/img/**/*.{jpg,png}')//cuando buscas mas de un formato se pone entre llaves.
+        .pipe(webp(opciones))
+        .pipe(dest('build/imgs'))
+
+    done();
+}
+
+
 function dev(done){ //Creamos esta funcion para no modificar la principal
     //watch('src/scss/app.scss', css) forma de escuchar un solo archivo
     watch('src/scss/**/*.scss', css) //forma de escuchar todos los archivos .scss
@@ -31,4 +47,5 @@ function dev(done){ //Creamos esta funcion para no modificar la principal
 }
 
 exports.css = css;
-exports.dev = dev;
+exports.versionWebp = versionWebp;
+exports.dev = parallel(versionWebp,dev);
