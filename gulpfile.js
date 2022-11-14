@@ -51,10 +51,18 @@ function versionWebp(done){
     done();
 }
 
+function javaScript(done){
+    src('src/js/**/*.js')
+        .pipe(dest('build/js'));
+
+    done();
+}
+
 
 function dev(done){ //Creamos esta funcion para no modificar la principal
     //watch('src/scss/app.scss', css) forma de escuchar un solo archivo
     watch('src/scss/**/*.scss', css) //forma de escuchar todos los archivos .scss
+    watch('src/js/**/*.js', javaScript) //forma de escuchar todos los archivos .js
 
     done();
 }
@@ -62,4 +70,4 @@ function dev(done){ //Creamos esta funcion para no modificar la principal
 exports.css = css;
 exports.imagenes = imagenes;
 exports.versionWebp = versionWebp;
-exports.dev = parallel(imagenes, versionWebp, dev);
+exports.dev = parallel(imagenes, versionWebp, javaScript, dev);
