@@ -680,3 +680,13 @@ img {
 .pase-footer p {
   font-size: 2.4rem;
 }
+
+.site-footer {
+  background-color: #f53756;
+  padding: 1rem;
+}
+.site-footer p {
+  margin: 0;
+  text-align: center;
+  color: #ffffff;
+}
