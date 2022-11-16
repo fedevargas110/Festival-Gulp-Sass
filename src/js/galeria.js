@@ -3,7 +3,26 @@ document.addEventListener('DOMContentLoaded', function(){
 });
 
 function iniciarApp(){
+    navegacionFija();// Definimos la funcion para fijar el scroll
     crearGaleria();
+    scrollNav()
+}
+
+function navegacionFija(){
+    const barra = document.querySelector('header');
+    const sobreFestival = document.querySelector('.sobre-festival');
+    const body = document.querySelector('body');//Para hacerlo mas fluido al fijar header
+
+
+    window.addEventListener('scroll', function(){
+        if(sobreFestival.getBoundingClientRect().bottom < 0){
+            barra.classList.add('fijo');
+            body.classList.add('body-scroll')
+        }else{
+            barra.classList.remove('fijo');
+            body.classList.remove('body-scroll');
+        }
+    });
 }
 
 function crearGaleria(){ // Generando la galeria con puro java script
@@ -24,6 +43,18 @@ function crearGaleria(){ // Generando la galeria con puro java script
 
         galeria.appendChild(imagen);
     }
+}
+
+function scrollNav (){ //Definiendo la funcion de smooth control
+    const enlaces = document.querySelectorAll('.navegacion-principal a');
+    enlaces.forEach(enlace => {
+        enlace.addEventListener('click', function(e){
+            e.preventDefault();//Para prevenir la accion de que te lleve de golpe.
+            const seccionScroll = e.target.attributes.href.value; //Te traiga el href de cada a
+            const seccion = document.querySelector(seccionScroll);
+            seccion.scrollIntoView({behavior:'smooth'}); //Añadimos la animacion smooth
+        });
+    });
 }
 
 function mostrarImagen(id){

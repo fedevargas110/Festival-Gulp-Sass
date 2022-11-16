@@ -18,6 +18,9 @@ body {
     &.fijar-body{
         overflow: hidden;
     }
+    &.body-scroll{
+        padding-top: 8.6rem;//Es para que cuando se fije no pegue un salto y sea mas armonico el fijar header
+    }
 }
 
 p{
