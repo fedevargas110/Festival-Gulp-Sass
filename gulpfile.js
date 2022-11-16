@@ -10,6 +10,11 @@ const {src, dest, watch, parallel} = require('gulp'); //src para identificar un 
 //CSS
 const sass = require('gulp-sass')(require('sass'));
 const plumber =  require('gulp-plumber'); // Es para que no pare de correr el dev y me muestre los errores
+const cssnano = require('cssnano');//Estos tres ayudan a una ves terminado el proyecto minimizar y comprimir el archivo css
+const autoprefixer = require('autoprefixer');
+const postcss = require('gulp-postcss');
+const sourcemaps = require('gulp-sourcemaps');
+
 
 //Imagenes
 const cache = require('gulp-cache');
@@ -21,9 +26,12 @@ function css(done){
     //src('src/scss/app.scss') forma para identificar un solo archivo
     src('src/scss/**/*.scss')//forma de compliar todos los archivos con la extencios scss
     //Compilarlo
+        .pipe(sourcemaps.init())
         .pipe(plumber())
         .pipe(sass())
+        .pipe(postcss([autoprefixer(), cssnano()]))
     //Almacenarla en el disco duro
+        .pipe(sourcemaps.write('.'))
         .pipe(dest('build/css'))
 
     done();// Callback que avisa a gulp cuando llegamos al final
@@ -70,4 +78,4 @@ function dev(done){ //Creamos esta funcion para no modificar la principal
 exports.css = css;
 exports.imagenes = imagenes;
 exports.versionWebp = versionWebp;
-exports.dev = parallel(imagenes, versionWebp, javaScript, dev);
+exports.dev = parallel(imagenes, versionWebp, javaScript, css, dev);
